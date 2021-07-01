@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
+using WebApplicationCustomerInvitaion.Classes;
 
 namespace WebApplicationTestResult.Controllers
 {
@@ -16,7 +16,13 @@ namespace WebApplicationTestResult.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-          
+            CustomerService customerService = new CustomerService();
+            var result = customerService.GetList(null);
+
+            if (result != null)
+                return new JsonResult(result);
+            else
+                return NotFound();
         }
     }
 }

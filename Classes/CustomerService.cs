@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace WebApplicationCustomerInvitaion.Classes
+
 {/// <summary>
 /// responsible for reading customer list from file and filtering
 /// </summary>
@@ -26,35 +26,25 @@ namespace WebApplicationCustomerInvitaion.Classes
         /// <summary>
         /// read data from the text file and filter it based on 100 km distance
         /// </summary>
-        /// <param name="fileName">optional file name if want to use different source file</param>
         /// <returns>filtered customer list</returns>
-        public List<Customer> GetList(string? fileName)
+        public List<Customer> GetList()
         {
             var customerList = new List<Customer>();
-            string  currentDirectory="", path="";
+            string currentDirectory = "", path = "";
 
             //prepare reading path
-            if (string.IsNullOrEmpty(fileName))
-            {
-                //use default value
-                 currentDirectory = Directory.GetCurrentDirectory();
-                 path = currentDirectory + DataURL;              
-            }
-            else
-            {
-                //use diffrent file 
-                 currentDirectory = Directory.GetCurrentDirectory();
-                 path = currentDirectory + fileName;
-            } 
+            currentDirectory = Directory.GetCurrentDirectory();
+            path = currentDirectory + DataURL;
+
             //read file
             customerList = ReadFileContent(path);
 
             //filter list based on distance
             return customerList
                 .Where(e => CalculateDistance(e.Longitude, e.Latitude))
-                .OrderBy(e=>e.UserId)
+                .OrderBy(e => e.UserId)
                 .ToList();
-             
+
         }
 
         /// <summary>

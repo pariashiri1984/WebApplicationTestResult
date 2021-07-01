@@ -28,7 +28,8 @@ The GPS coordinates for our Dublin office are 53.339428, -6.257664. You can find
 
 ### CodeSubmit
 
-Please organize, design, test and document your code as if it were going into production - then push your changes to the master branch. After you have pushed your code, you may submit the assignment on the assignment page.
+Please organize, design, test and document your code as if it were going into production - then push your changes to the master branch.
+After you have pushed your code, you may submit the assignment on the assignment page.
 
 All the best and happy coding,
 

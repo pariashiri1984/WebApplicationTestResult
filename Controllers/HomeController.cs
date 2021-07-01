@@ -17,7 +17,7 @@ namespace WebApplicationTestResult.Controllers
         public IActionResult Get()
         {
             CustomerService customerService = new CustomerService();
-            var result = customerService.GetList(null);
+            var result = customerService.GetList();
 
             if (result != null)
                 return new JsonResult(result);
